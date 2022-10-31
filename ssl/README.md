@@ -10,7 +10,7 @@ The commands are using [nginx-proxy]() and [nginx-proxy-letsencrypt]() to work, 
 The first thing we need to do is run `nginx-proxy`: 
 
 ```shell
-docker run --detach     
+docker run --detach \
   --name nginx-proxy \
   --publish 80:80 \
   --publish 443:443 \
@@ -25,7 +25,7 @@ docker run --detach
 Then, we need to run `nginx-proxy-letsencrypt`: 
 
 ```shell
-docker run --detach
+docker run --detach \
   --name nginx-proxy-letsencrypt \
   --volumes-from nginx-proxy \
   --volume /var/run/docker.sock:/var/run/docker.sock:ro \
